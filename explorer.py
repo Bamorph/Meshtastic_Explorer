@@ -77,6 +77,10 @@ class DecodedMessagesDB:
         except sqlite3.Error as e:
             print(f"SQLite error occurred: {e}")
 
+    def close(self):
+        if self.conn:
+            self.conn.close()
+            print("Database connection closed.")
 
 db = DecodedMessagesDB('decoded_messages.db')
 
